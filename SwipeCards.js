@@ -27,6 +27,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
+  card: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   yup: {
     borderColor: 'green',
     borderWidth: 2,
