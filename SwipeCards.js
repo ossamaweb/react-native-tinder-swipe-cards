@@ -361,6 +361,7 @@ export default class SwipeCards extends Component {
       } else if (nextProps.action === 'smash') {
         this._forceRightSwipe();
       }
+    }
   }
 
   _resetPan() {
