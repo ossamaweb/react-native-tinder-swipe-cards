@@ -112,7 +112,8 @@ export default class SwipeCards extends Component {
     renderCard: React.PropTypes.func,
     cardRemoved: React.PropTypes.func,
     dragY: React.PropTypes.bool,
-    smoothTransition: React.PropTypes.bool
+    smoothTransition: React.PropTypes.bool,
+    action: React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -142,7 +143,8 @@ export default class SwipeCards extends Component {
     renderCard: (card) => null,
     style: styles.container,
     dragY: true,
-    smoothTransition: false
+    smoothTransition: false,
+    action: null,
   };
 
   constructor(props) {
@@ -270,6 +272,7 @@ export default class SwipeCards extends Component {
   }
 
   _forceUpSwipe() {
+    console.log('_forceLeftSwipe');
     this.cardAnimation = Animated.timing(this.state.pan, {
       toValue: { x: 0, y: 500 },
     }).start(status => {
@@ -283,6 +286,7 @@ export default class SwipeCards extends Component {
   }
 
   _forceRightSwipe() {
+    console.log('_forceRightSwipe');
     this.cardAnimation = Animated.timing(this.state.pan, {
       toValue: { x: 500, y: 0 },
     }).start(status => {
@@ -351,6 +355,12 @@ export default class SwipeCards extends Component {
         card: nextProps.cards[0]
       });
     }
+    if (nextProps.action) {
+      if (nextProps.action === 'pass') {
+        this._forceLeftSwipe();
+      } else if (nextProps.action === 'smash') {
+        this._forceRightSwipe();
+      }
   }
 
   _resetPan() {
