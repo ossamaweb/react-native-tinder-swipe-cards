@@ -102,6 +102,10 @@ export default class SwipeCards extends Component {
     yupView: React.PropTypes.element,
     maybeText: React.PropTypes.string,
     maybeView: React.PropTypes.element,
+    yupStyle: View.propTypes.style,
+    yupTextStyle: Text.propTypes.style,
+    nopeStyle: View.propTypes.style,
+    nopeTextStyle: Text.propTypes.style,
     noText: React.PropTypes.string,
     noView: React.PropTypes.element,
     onClickHandler: React.PropTypes.func,
@@ -480,9 +484,9 @@ export default class SwipeCards extends Component {
 
       const inner = this.props.noView
         ? this.props.noView
-        : <Text style={styles.nopeText}>{this.props.nopeText}</Text>
+        : <Text style={[styles.nopeText, this.props.nopeTextStyle]}>{this.props.nopeText}</Text>
 
-      return <Animated.View style={[styles.nope, animatedNopeStyles]}>
+      return <Animated.View style={[styles.nope, this.props.nopeStyle, animatedNopeStyles]}>
                 {inner}
               </Animated.View>;
     }
@@ -533,9 +537,9 @@ export default class SwipeCards extends Component {
 
       const inner = this.props.yupView
         ? this.props.yupView
-        : <Text style={styles.yupText}>{this.props.yupText}</Text>;
+        : <Text style={[styles.yupText, this.props.yupTextStyle]}>{this.props.yupText}</Text>;
 
-        return <Animated.View style={[styles.yup, animatedYupStyles]}>
+        return <Animated.View style={[styles.yup, this.props.yupStyle, animatedYupStyles]}>
                 {inner}
               </Animated.View>;
     }
