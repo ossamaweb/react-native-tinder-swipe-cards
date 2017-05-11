@@ -484,9 +484,9 @@ export default class SwipeCards extends Component {
 
       const inner = this.props.noView
         ? this.props.noView
-        : <Text style={[styles.nopeText, this.props.nopeTextStyle]}>{this.props.nopeText}</Text>
+        : <Text pointerEvents="none" style={[styles.nopeText, this.props.nopeTextStyle]}>{this.props.nopeText}</Text>
 
-      return <Animated.View style={[styles.nope, this.props.nopeStyle, animatedNopeStyles]}>
+      return <Animated.View pointerEvents="none" style={[styles.nope, this.props.nopeStyle, animatedNopeStyles]}>
                 {inner}
               </Animated.View>;
     }
@@ -537,9 +537,9 @@ export default class SwipeCards extends Component {
 
       const inner = this.props.yupView
         ? this.props.yupView
-        : <Text style={[styles.yupText, this.props.yupTextStyle]}>{this.props.yupText}</Text>;
+        : <Text pointerEvents="none" style={[styles.yupText, this.props.yupTextStyle]}>{this.props.yupText}</Text>;
 
-        return <Animated.View style={[styles.yup, this.props.yupStyle, animatedYupStyles]}>
+        return <Animated.View pointerEvents="none" style={[styles.yup, this.props.yupStyle, animatedYupStyles]}>
                 {inner}
               </Animated.View>;
     }
