@@ -535,7 +535,8 @@ export default class SwipeCards extends Component {
 
   renderYup() {
     let {pan} = this.state;
-
+    console.log('pan', pan);
+    console.log('pan.x', pan.x);
     let yupOpacity = pan.x.interpolate({ inputRange: [(SWIPE_THRESHOLD/2), SWIPE_THRESHOLD], outputRange: [0, 1], extrapolate: 'clamp' });
     let yupScale = pan.x.interpolate({ inputRange: [0, SWIPE_THRESHOLD], outputRange: [0.5, 1], extrapolate: 'clamp' });
     let animatedYupStyles = { transform: [{ scale: yupScale }], opacity: yupOpacity };
